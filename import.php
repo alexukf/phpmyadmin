@@ -426,6 +426,8 @@ if (!empty($id_bookmark) && $action_bookmark == 2) {
     if ($import_type == 'query') {
         $message = PMA_Message::success();
     } else {
+//        echo "<br />X$import_type<br />import notice: ".$import_notice;
+       
         if ($import_notice) {
             $message = PMA_Message::success('<em>'.__('Import has been successfully finished, %d queries executed.').'</em>');
             $message->addParam($executed_queries);
@@ -477,10 +479,25 @@ if (! empty($last_query_with_results)) {
     $go_sql = true;
 }
 
+//if (  $_SESSION['Import_message']['message'] ) {
+//    
+//    echo "<br/>E intsanceof _SESSION: ";
+//} else {
+//    echo "<br/>NU E intsanceof _SESSION: ";
+//}
+//
+//
+//if ($message instanceof PMA_Message) {
+//    echo "<br/>E intsanceof message: $message";
+//} else
+//   echo "<br/>NU E intsanceof message: $message";
+//
+//echo "<Br />gosql: <Br />".$go_sql."|goto: ".$goto;
+////exit();
 if ($go_sql) {
     include './sql.php';
 } else {
-    $active_page = $goto;
+    //$active_page = $goto;
     include './' . $goto;
 }
 exit();

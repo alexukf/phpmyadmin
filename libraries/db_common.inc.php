@@ -11,11 +11,21 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Gets some core libraries
  */
+//echo "<Br />BEFORE common: ".$GLOBALS['db'];
 require_once './libraries/common.inc.php';
+//echo "<Br />BEFORE bookmarklib: ".$GLOBALS['db'];
 require_once './libraries/bookmark.lib.php';
+
+////todo del alex - aici spune ca are nevoie de db
+//echo "<pre>";
+//print_r($GLOBALS['db']);
+//echo "<br />XSSS<Br />";
+//print_r($_GET['db']);
+//echo "</pre>";
 
 PMA_checkParameters(array('db'));
 
+//echo "<Br />db === $db";
 $is_show_stats = $cfg['ShowStats'];
 
 $db_is_information_schema = PMA_is_system_schema($db);
@@ -45,11 +55,24 @@ if (! isset($is_db) || ! $is_db) {
             unset($GLOBALS['errno']);
         }
     }
+    
+    
+//if ( $is_db)
+//    echo "<Br />db: $db | is_db:  true";
+//else
+//    echo "<Br />db: $db | is_db:  false";
+// sql: db: 1test | is_db: true
+// xml: db: `1test` | is_db: false
+
+
+
     // Not a valid db name -> back to the welcome page
     if (! strlen($db) || ! $is_db) {
+//        echo "<br />PMA_sendHeaderLocation";
+//exit();
         PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'main.php?' . PMA_generate_common_url('', '', '&') . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1');
         exit;
-    }
+    } 
 } // end if (ensures db exists)
 
 /**
@@ -78,5 +101,6 @@ require_once './libraries/header.inc.php';
  * Set parameters for links
  */
 $url_query = PMA_generate_common_url($db);
-
+//echo "<br />URL: ".$url_query;
+//exit();
 ?>

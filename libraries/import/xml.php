@@ -305,13 +305,16 @@ if (strlen($db)) {
     );
 }
 
+//echo $GLOBALS['db']."|$db_name|";
 /* Created and execute necessary SQL statements from data */
 PMA_buildSQL($db_name, $tables, $analyses, $create, $options);
 
+//echo $GLOBALS['db'];
 unset($analyses);
 unset($tables);
 unset($create);
 
+//exit();
 /* Commit any possible data in buffers */
 PMA_importRunQuery();
 ?>

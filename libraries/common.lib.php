@@ -1017,7 +1017,14 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         . ( isset($GLOBALS['cell_align_left']) ? $GLOBALS['cell_align_left'] : '' )
         . '">' . "\n";
 
+    echo "<pre>";
+//    print_r($cfg);
+//    echo "<Br />|||<br />";
+//    print_r($_GLOBALS);
+    echo "</pre>";
+            
     if ($message instanceof PMA_Message) {
+        echo "<br /> instance of PMA_Message";
         if (isset($GLOBALS['special_message'])) {
             $message->addMessage($GLOBALS['special_message']);
             unset($GLOBALS['special_message']);
@@ -1025,8 +1032,10 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
         $message->display();
         $type = $message->getLevel();
     } else {
+        echo "<br />NOT instance of";
         echo '<div class="' . $type . '">';
         echo PMA_sanitize($message);
+//        echo $message;
         if (isset($GLOBALS['special_message'])) {
             echo PMA_sanitize($GLOBALS['special_message']);
             unset($GLOBALS['special_message']);
@@ -1035,6 +1044,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     }
 
     if ($cfg['ShowSQL'] == true && ! empty($sql_query)) {
+        echo "<br />ShowSQL";
         // Html format the query to be displayed
         // If we want to show some sql code it is easiest to create it here
         /* SQL-Parser-Analyzer */
@@ -1314,6 +1324,7 @@ function PMA_showMessage($message, $sql_query = null, $type = 'notice', $is_view
     if ($GLOBALS['is_ajax_request'] == true
         && ! isset($GLOBALS['buffer_message'])
     ) {
+        echo "<Br />ajax request";
         $buffer_contents =  ob_get_contents();
         ob_end_clean();
         return $buffer_contents;
