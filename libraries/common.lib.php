@@ -897,7 +897,7 @@ function PMA_backquote($a_name, $do_it = true)
  * @param mixed   $a_name the "backquoted" database, table or field name
  *                        or array of it
  *
- * @return  mixed    the "backquoted" database, table or field name
+ * @return  mixed    the desired unescaped database, table or field name
  *
  * @access  public
  */
