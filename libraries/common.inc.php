@@ -510,7 +510,6 @@ if (PMA_isValid($_REQUEST['db'])) {
     $GLOBALS['db'] = $_REQUEST['db'];
     $GLOBALS['url_params']['db'] = $GLOBALS['db'];
 }
-//echo "<Br />common.inc.php: ".$GLOBALS['db'];
 
 /**
  * current selected table
@@ -1050,6 +1049,4 @@ if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     include $__redirect;
     exit();
 }
-//echo "<Br />common.inc.php2: ".$GLOBALS['db'];
-
 ?>
