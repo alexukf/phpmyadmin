@@ -19,10 +19,6 @@ if (!function_exists('libxml_disable_entity_loader')) {
     return;
 }
 
-/**
- * The possible scopes for $plugin_param are: 'table', 'database', and 'server'
- */
-
 if (isset($plugin_list)) {
     $plugin_list['xml'] = array(
         'text' => __('XML'),
