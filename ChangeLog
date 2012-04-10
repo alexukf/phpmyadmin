@@ -22,6 +22,7 @@ phpMyAdmin - ChangeLog
 + Patch #3507111 Display distinct results, linked to corresponding data rows
 + Update to jQuery 1.7.2
 - bug #3507917 [export] JSON has unescaped values for allegedly numeric columns
++ rfe #3516187 show tables creation, last update, last check timestamps in db_structure
 
 3.5.1.0 (not yet released)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
@@ -32,6 +33,7 @@ phpMyAdmin - ChangeLog
 - bug #3515181 [users] Error in create user + underscore + create database
 - bug #3515666 [display] Profiling chart shows wrong data
 - bug #3516037 [auth] JS includes missing in auth config error page
+- bug #3516183 [display] Missing image extension
 
 3.5.0.0 (2012-04-07)
 + rfe #2021981 [interface] Add support for mass prefix change.
